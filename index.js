@@ -163,19 +163,19 @@ function scoreboard(inningcb, inningScorecb, inningNum) {
   let awayScore = 0;
 
   for(let i = 0; i < inningNum; i++){
-    const currentInning = inningScorecb(inningcb);
+    let currentInning = inningScorecb(inningcb);
     homeScore = homeScore + currentInning.home;
-    awayScore = awayScore + currentInning.away;
+    awayScore = awayScore + currentInning.away;    
 
-    scoreByInning.push(`Inning ${i + 1}: Away ${currentInning.away} - Home ${currentInning.home}`);
+    scoreByInning.push(`Inning ${i + 1}: Away ${currentInning.away} - Home ${currentInning.home}`);  
   }
 
-  if (awayScore === homeScore) {
-    scoreByInning.push (`The current scores are ${currentInning.away} for away and ${currentInning.home} for home. Another inning must be played`);
-  } else {
-    scoreByInning.push (`Final Score Away: ${awayScore} - Home: ${homeScore}`);
-  } 
-
+    if (awayScore === homeScore) {
+      scoreByInning.push(`The current scores are ${currentInning.away} for away and ${currentInning} for home. Another inning must be played`);
+    } else {
+      scoreByInning.push(`Final Score Away: ${awayScore} - Home: ${homeScore}`);
+    } 
+  
   return scoreByInning;
 }
 
